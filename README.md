@@ -19,7 +19,9 @@ Reuslts
 
 
 Training parameters
-epochs: 100
-optimizer: Adam
-scheduler: ReduceLROnPlateau
-lr: 3e-4 
+| Parameter | Value            |
+|-----------|------------------|
+| epochs    | 100              |
+| optimizer | Adam             |
+| scheduler | ReduceLROnPlateau|
+| lr        | 3e-4             |
