@@ -27,6 +27,7 @@ Training parameters
 | lr        | 3e-4             |
 
 
+
 How to improve
 1. more epochs
 2. more data for worst classes
