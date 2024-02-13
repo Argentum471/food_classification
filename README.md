@@ -15,7 +15,7 @@ Reuslts
 |---------|-----|
 | resnet18   | 0.73 
 | resnet50d     | 0.82 
-| tf_efficientnetv2_s.in1k| 0.8288
+| tf_efficientnetv2_s.in1k| 0.88
 
 
 Training parameters
@@ -25,3 +25,10 @@ Training parameters
 | optimizer | Adam             |
 | scheduler | ReduceLROnPlateau|
 | lr        | 3e-4             |
+
+How to improve
+1. more epochs
+2. more data for worst classes
+3. new architecture
+4. more specified augmentations
+5. 
