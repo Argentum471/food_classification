@@ -10,6 +10,8 @@ $ https://github.com/Argentum471/food_classification.git
 $ docker-compose up
 ```
 
+Bot: https://t.me/GastronomyGeniusBot
+
 Reuslts
 | model    | top1 
 |---------|-----|
