@@ -9,6 +9,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+**/__pycache__/
 build/
 develop-eggs/
 dist/
@@ -109,7 +110,7 @@ celerybeat.pid
 .env
 .venv
 env/
-venv/
+../venv/
 ENV/
 env.bak/
 venv.bak/
@@ -139,18 +140,24 @@ dmypy.json
 cython_debug/
 /data
 /configs
-**/electrolyzer
-**/lib-source
 /.idea
-dev-requirements.txt
+requirements.txt
 README.md
 /etc
 /tools
 /test
 /home
 /usr
-*/__pycache__
 *.pyc
 *.md
-*Dockerfile
-*requirements.txt
+
+# Docker
+docker-compose.yml
+Dockerfile
+.docker
+.dockerignore
+
+# Git
+.git
+.gitignore
+.gitattributes
