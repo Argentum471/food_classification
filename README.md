@@ -12,6 +12,8 @@ $ docker-compose up
 
 Bot: https://t.me/GastronomyGeniusBot
 
+If you have .env, put it in root
+
 Reuslts
 | model    | top1 
 |---------|-----|
