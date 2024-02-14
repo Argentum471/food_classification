@@ -1,4 +1,4 @@
-MODEL_PATH: "./app/classifier/weights/tf_efficientnetv2_s.in1k.onnx"
+MODEL_PATH: "./app/classifier/models/tf_efficientnetv2_s.in1k.onnx"
 
 IMG_SIZE: [224, 224] # (H, W)
 DEVICE: "cuda"
