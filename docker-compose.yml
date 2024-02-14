@@ -4,13 +4,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_bot
+    env_file:
+      - .env
     environment:
       TELEGRAM_BOT_TOKEN: $TELEGRAM_BOT_TOKEN
     ports:
       - "8000:8000"
     command: python3 -m service --host=0.0.0.0
-    secrets:
-      - token
 
   app:
     container_name: flask_app
@@ -22,7 +22,3 @@ services:
     ports:
       - "5000:5000"
     command: python3 -m flask run --host=0.0.0.0
-
-secrets:
-  token:
-    file: .env
