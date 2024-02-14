@@ -166,5 +166,6 @@ cython_debug/
 *.onnx
 *.jpg
 *.png
+.idea/
 videos/
 models/
