@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Image Classification</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for smaller title */
+    .page-title {
+      font-size: 20px; /* Reduced font size of the title */
+      margin-top: 20px; /* Added margin to push it up */
+    }
+    /* Custom CSS for smaller form elements */
+    .form-group label {
+      font-size: 16px; /* Set the font size of form labels */
+    }
+    .form-control {
+      height: 40px; /* Set the height of form controls */
+      font-size: 16px; /* Set the font size of form controls */
+    }
+    .btn {
+      height: 40px; /* Set the height of buttons */
+      font-size: 16px; /* Set the font size of buttons */
+    }
+    /* Custom CSS for image and table containers */
+    .image-container,
+    .table-container {
+      height: 320px; /* Set the height of the container */
+      overflow-y: auto; /* Add vertical scroll if needed */
+      text-align: center; /* Center align contents */
+      margin-top: 20px; /* Add margin to move the content down */
+    }
+    /* Custom CSS for image */
+    .image-container img {
+      width: 100%; /* Ensure the image fills the container */
+      height: auto; /* Maintain aspect ratio */
+      max-height: 100%; /* Set max height to avoid stretching */
+      max-width: 100%; /* Set max width to avoid stretching */
+      aspect-ratio: 1; /* Ensure the image is square */
+      object-fit: cover; /* Cover the container without stretching */
+    }
+    /* Custom CSS for smaller table */
+    .table th, .table td {
+      font-size: 16px; /* Set the font size of table cells */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="jumbotron bg-primary text-center page-title">Image Classification</h1>
+  <br><br>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form id="imageForm" class="form-horizontal" action="submit" method="post" enctype="multipart/form-data">
+        <div class="form-group text-center">
+          <h3>Upload Your Image :</h3> <!-- Moved above the form -->
+          <label for="pwd">Choose File:</label>
+          <input type="file" class="form-control" placeholder="Choose File"  name="sample" id="pwd" required>
+          <button type="submit" class="btn btn-success btn-block mt-3" id="submitButton">Submit</button> <!-- Center align the button -->
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="image-container">
+        {% if prediction and img_path %}
+        <img src="{{img_path}}" class="img-fluid" alt="Predicted Image">
+        {% else %}
+        <p class="text-center">No image uploaded.</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-4"> <!-- Adjusted the column width -->
+      {% if prediction %}
+      <div class="table-container">
+        <h2 class="text-center">Top 5 Predictions</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Food</th>
+              <th>Probability</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for food, probability in top_predictions %}
+            <tr>
+              <td>{{ food }}</td>
+              <td>{{ probability }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("imageForm").addEventListener("submit", function(event) {
+    const fileInput = document.getElementById("pwd");
+    if (!fileInput.files.length) {
+      event.preventDefault(); // Prevent form submission if no file is selected
+      alert("Please select an image.");
+    }
+  });
+</script>
+
+</body>
+</html>
